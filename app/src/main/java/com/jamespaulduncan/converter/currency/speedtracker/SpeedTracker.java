@@ -1,6 +1,7 @@
 package com.jamespaulduncan.converter.currency.speedtracker;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -19,6 +20,7 @@ public class SpeedTracker extends ActionBarActivity
     Context context;
     private TextView speedTextView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -27,6 +29,8 @@ public class SpeedTracker extends ActionBarActivity
 
         speedTextView = (TextView) findViewById(R.id.speedTextView);
 
+
+
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         // Define a listener that responds to location updates
@@ -34,6 +38,7 @@ public class SpeedTracker extends ActionBarActivity
         {
             public void onLocationChanged(Location location)
             {
+
                 location.getLatitude();
                 float conversionFactor = 3.6f;
                 float kmph = location.getSpeed() * conversionFactor;
@@ -49,6 +54,10 @@ public class SpeedTracker extends ActionBarActivity
                 Log.d(TAG, "getLongitude " + location.getLongitude());
                 Log.d(TAG, "getTime " + location.getTime()); //getTime() returns the UTC time since 1970 from when the location was generated, the system time may have changed.
 
+                if (kmph > 20f)
+                {
+                    speedTextView.setBackgroundColor(Color.RED);
+                }
             }
 
             public void onStatusChanged(String provider, int status, Bundle extras)
