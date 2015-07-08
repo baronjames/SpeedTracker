@@ -47,7 +47,7 @@ public class SpeedTracker extends ActionBarActivity
 //                Log.d(TAG, "getElapsedRealtimeNanos " + location.getElapsedRealtimeNanos()); //Requires API level 17+
                 Log.d(TAG, "getLatitude " + location.getLatitude());
                 Log.d(TAG, "getLongitude " + location.getLongitude());
-                Log.d(TAG, "getTime " + location.getTime());
+                Log.d(TAG, "getTime " + location.getTime()); //getTime() returns the UTC time since 1970 from when the location was generated, the system time may have changed.
 
             }
 
