@@ -121,7 +121,8 @@ public class SpeedTracker extends ActionBarActivity implements SensorEventListen
 
         //**********Copied from http://androidplot.com/docs/dynamically-plotting-sensor-data/ ******************
         //START GRAPHING CODE
-        // setup the APR Levels plot:
+
+        // setup the APR Levels plot (bar graph):
         aprLevelsPlot = (XYPlot) findViewById(R.id.aprLevelsPlot);
 
         aprLevelsSeries = new SimpleXYSeries("APR Levels");
@@ -131,10 +132,10 @@ public class SpeedTracker extends ActionBarActivity implements SensorEventListen
         aprLevelsPlot.setDomainStepValue(3);
         aprLevelsPlot.setTicksPerRangeLabel(3);
 
-        // per the android documentation, the minimum and maximum readings we can get from
-        // any of the orientation sensors is -180 and 359 respectively so we will fix our plot's
-        // boundaries to those values.  If we did not do this, the plot would auto-range which
-        // can be visually confusing in the case of dynamic plots.
+//         per the android documentation, the minimum and maximum readings we can get from
+//         any of the orientation sensors is -180 and 359 respectively so we will fix our plot's
+//         boundaries to those values.  If we did not do this, the plot would auto-range which
+//         can be visually confusing in the case of dynamic plots.
         aprLevelsPlot.setRangeBoundaries(-180, 359, BoundaryMode.FIXED);
 
         // use our custom domain value formatter:
